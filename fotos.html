@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Momentos ❤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f7f1e3;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 { color: #ff4757; margin-top: 30px; }
+        .subtitulo { font-size: 1.1em; color: #555; margin-bottom: 40px; }
+        
+        /* Contenedor de fotos (Grid) */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .foto-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transform: rotate(calc(var(--r, 0) * 1deg));
+            transition: 0.3s;
+        }
+        .foto-card:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .foto-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .pie-foto {
+            margin-top: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #444;
+        }
+        .btn-regresar {
+            margin-top: 40px;
+            display: inline-block;
+            color: #ff4757;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tu Lugar Seguro 🏡❤️</h1>
+    <p class="subtitulo">Pase lo que pase ahí adentro, aquí te espera la persona que más te ama.</p>
+
+    <div class="galeria">
+        <!-- FOTO 1 -->
+        <!-- Reemplaza el link de abajo por el nombre de tu foto, ej: "nosotros1.jpg" -->
+        <div class="foto-card" style="--r: -3">
+            <img src="lirios.jpeg" alt="Recuerdo 1">
+            <div class="pie-foto">📍 El día de nuestra aventura preferida</div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="foto-card" style="--r: 2">
+            <img src="https://unsplash.com" alt="Recuerdo 2">
+            <div class="pie-foto">💋 Un abrazo para calmar los nervios</div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="foto-card" style="--r: -1">
+            <img src="https://unsplash.com" alt="Recuerdo 3">
+            <div class="pie-foto">✨ Siempre orgullosa de ti</div>
+        </div>
+    </div>
+<br><br>
+<a href="final.html" style="background: #ff4757; color: white; text-decoration: none; padding: 15px 30px; font-weight: bold; border-radius: 50px; display: inline-block; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);">Último mensaje para ti... 🎁</a>
+<br>
+
+    <a href="index.html" class="btn-regresar">← Volver al mensaje principal</a>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Mucho Éxito Amor! 🚀</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 { font-size: 2.2em; margin-bottom: 10px; }
+        p { font-size: 1.1em; line-height: 1.5; }
+        
+        /* Zona de la foto dinámica */
+        .contenedor-foto {
+            margin: 20px 0;
+            position: relative;
+        }
+        .foto-dinamica {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff4757;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease;
+        }
+        
+        /* Contador y Botón interactivo */
+        .contador-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-abrazo {
+            background: #2ed573;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
+            margin-bottom: 25px;
+            transition: 0.2s;
+        }
+        .btn-abrazo:active {
+            transform: scale(0.95);
+        }
+
+        /* Botón para ir a la otra página */
+        .btn-siguiente {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+        }
+        .btn-siguiente:hover {
+            background: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>¡Hoy Vas a Brillar! 🎤✨</h1>
+        <p>Sé lo mucho que te has preparado. Eres la persona más capaz del mundo y aquí estoy para apoyarte.</p>
+        
+        <!-- Aquí aparece tu foto que irá cambiando -->
+        <div class="contenedor-foto">
+            <img id="miFoto" src="https://unsplash.com" alt="Foto mía" class="foto-dinamica">
+        </div>
+
+        <!-- Contador digital -->
+        <div class="contador-box">
+            🤗 Abrazos acumulados: <span id="numeroAbrazos">0</span>
+        </div>
+        <br>
+        
+        <!-- Botón interactivo -->
+        <button class="btn-abrazo" onclick="darAbrazo()">¡Presiona para un Abrazo! ❤️</button>
+        
+        <p style="font-size: 0.9em; opacity: 0.8;">¿Quieres ver más recuerdos?</p>
+        <a href="fotos.html" class="btn-siguiente">Ver Galería Completa 📸</a>
+    </div>
+
+    <script>
+        let contador = 0;
+        
+        // REEMPLAZA ESTOS LINKS POR TUS FOTOS REALES
+        // Puedes usar nombres de archivos locales (ej: "foto1.jpg", "foto2.jpg") si están en la misma carpeta
+        const misFotos = [
+            "mia1.jpg", // Tu foto 1
+            "lirios.jpeg", // Tu foto 2
+            "mia1.jpg", // Tu foto 3
+            "lirios.jpeg"  // Tu foto 4
+        ];
+
+        let fotoActualIndex = 0;
+
+        function darAbrazo() {
+            // 1. Sumar 1 al contador
+            contador++;
+            document.getElementById("numeroAbrazos").innerText = contador;
+            
+            // 2. Cambiar a la siguiente foto de la lista
+            fotoActualIndex = (fotoActualIndex + 1) % misFotos.length;
+            const elementoFoto = document.getElementById("miFoto");
+            elementoFoto.src = misFotos[fotoActualIndex];
+            
+            // 3. Efecto visual de brinco en la foto
+            elementoFoto.style.transform = "scale(1.1)";
+            setTimeout(() => {
+                elementoFoto.style.transform = "scale(1)";
+            }, 150);
+        }
+    </script>
+
+</body>
+</html>
+
