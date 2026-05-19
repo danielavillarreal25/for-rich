@@ -90,6 +90,29 @@
         .btn-siguiente:hover {
             background: #ff6b81;
         }
+
+        /* Efecto de corazones flotantes */
+        .corazon-flotante {
+            position: fixed;
+            color: #ff4757;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: flotarVertical 1.5s ease-out forwards;
+        }
+
+        @keyframes flotarVertical {
+            0% {
+                transform: translateY(100vh) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        
     </style>
 </head>
 <body>
@@ -132,7 +155,7 @@
 
         let fotoActualIndex = 0;
 
-        function darAbrazo() {
+               function darAbrazo() {
             // 1. Sumar 1 al contador
             contador++;
             document.getElementById("numeroAbrazos").innerText = contador;
@@ -147,9 +170,33 @@
             setTimeout(() => {
                 elementoFoto.style.transform = "scale(1)";
             }, 150);
+
+            // 4. ¡LLUVIA DE CORAZONES!
+            for (let i = 0; i < 15; i++) {
+                crearCorazon();
+            }
         }
-    </script>
 
-</body>
-</html>
-
+        function crearCorazon() {
+            const corazon = document.createElement("div");
+            corazon.classList.add("corazon-flotante");
+            
+            // Variedad de emojis de amor aleatorios
+            const modelos = ["❤️", "💖", "💋", "💘", "💝"];
+            corazon.innerText = modelos[Math.floor(Math.random() * modelos.length)];
+            
+            // Posición horizontal aleatoria
+            corazon.style.left = Math.random() * 100 + "vw";
+            
+            // Tamaños y velocidades ligeramente diferentes para que se vea natural
+            const tamaño = Math.random() * 20 + 20;
+            corazon.style.fontSize = tamaño + "px";
+            corazon.style.animationDuration = (Math.random() * 1 + 1) + "s";
+            
+            document.body.appendChild(corazon);
+            
+            // Borrar el corazón de la pantalla cuando termine su animación para no trabar el celular
+            setTimeout(() => {
+                corazon.remove();
+            }, 2000);
+        }
