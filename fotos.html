@@ -10,30 +10,73 @@
             background-color: #f7f1e3;
             color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
         }
-        h1 { color: #ff4757; margin-top: 30px; }
-        .subtitulo { font-size: 1.1em; color: #555; margin-bottom: 40px; }
+        h1 { color: #ff4757; margin-top: 15px; font-size: 1.8em; margin-bottom: 5px; }
+        .subtitulo { font-size: 1em; color: #555; margin-bottom: 20px; }
         
-               /* Contenedor de fotos en armonía (2x2) */
+        /* Contenedor de fotos en armonía (2x2) */
         .galeria {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* Fuerza a que siempre sean 2 columnas perfectas */
-            gap: 30px;
-            max-width: 750px; /* Reduce el ancho máximo para mantenerlas juntas y compactas */
+            gap: 20px;
+            max-width: 650px; /* Tamaño compacto para que quepa en una sola pantalla */
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px;
         }
         
-        /* Ajuste automático para celulares (se hace 1 columna solita) */
-        @media (max-width: 600px) {
-            .galeria {
-                grid-template-columns: 1fr;
-                max-width: 100%;
-            }
+        /* Ajuste de las tarjetas postales */
+        .foto-card {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transform: rotate(calc(var(--r, 0) * 1deg));
+            transition: 0.3s;
+        }
+        .foto-card:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
+        /* Control estricto del tamaño de la imagen para que no se hagan gigantes */
+        .foto-card img {
+            width: 100%;
+            height: 180px; /* Altura fija y compacta para que entren en una sola pantalla */
+            object-fit: cover; /* Recorta la imagen proporcionalmente para que no se deforme */
+            border-radius: 5px;
+        }
+
+        .pie-foto {
+            margin-top: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: #444;
+            line-height: 1.2;
+        }
+
+        .btn-regresar {
+            margin-top: 20px;
+            display: inline-block;
+            color: #ff4757;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Ajuste automático para pantallas muy pequeñas de celular */
+        @media (max-width: 500px) {
+            .galeria {
+                grid-template-columns: 1fr; /* En celular se acomodan en 1 columna para que no se vean minúsculas */
+                max-width: 100%;
+            }
+            .foto-card img {
+                height: 220px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -43,34 +86,38 @@
 
     <div class="galeria">
         <!-- FOTO 1 -->
-        <!-- Reemplaza el link de abajo por el nombre de tu foto, ej: "nosotros1.jpg" -->
         <div class="foto-card" style="--r: -3">
             <img src="ricardo1.jpeg" alt="Recuerdo 1">
             <div class="pie-foto"> Ver tu dedicación de cerca es mi motivación favorita, estoy muy orgullosa de ti pancito. </div>
         </div>
 
         <!-- FOTO 2 -->
-        <div class="foto-card" style="--r: 2">
+        <div class="foto-card" style="--r: 3">
             <img src="dani6.jpeg" alt="Recuerdo 2">
             <div class="pie-foto">Te espera en casa tu familia tradicional panista👄</div>
         </div>
 
-                <!-- FOTO NUEVA (FOTO 3) -->
+        <!-- FOTO 3 -->
         <div class="foto-card" style="--r: -2">
             <img src="us2.jpeg" alt="Recuerdo Nuevo">
             <div class="pie-foto">La Fuerza es intensa en ti🌌</div>
         </div>
 
-
         <!-- FOTO 4 -->
-        <div class="foto-card" style="--r: -1">
+        <div class="foto-card" style="--r: 2">
             <img src="kai.jpeg" alt="Recuerdo 3">
             <div class="pie-foto">kai, (ya no supe que poner JAJAJA)</div>
         </div>
     </div>
-<br><br>
-<a href="final.html" style="background: #ff4757; color: white; text-decoration: none; padding: 15px 30px; font-weight: bold; border-radius: 50px; display: inline-block; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);">Último mensaje para ti... 🎁</a>
-<br>
+
+    <br>
+    <a href="final.html" style="background: #ff4757; color: white; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 50px; display: inline-block; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); font-size: 0.95em;">Último mensaje para ti... 🎁</a>
+    <br>
+
+    <a href="index.html" class="btn-regresar">← Volver al mensaje principal</a>
+
+</body>
+</html>
 
     <a href="index.html" class="btn-regresar">← Volver al mensaje principal</a>
 
