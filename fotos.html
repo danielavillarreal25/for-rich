@@ -16,47 +16,24 @@
         h1 { color: #ff4757; margin-top: 30px; }
         .subtitulo { font-size: 1.1em; color: #555; margin-bottom: 40px; }
         
-        /* Contenedor de fotos (Grid) */
+               /* Contenedor de fotos en armonía (2x2) */
         .galeria {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
+            grid-template-columns: repeat(2, 1fr); /* Fuerza a que siempre sean 2 columnas perfectas */
+            gap: 30px;
+            max-width: 750px; /* Reduce el ancho máximo para mantenerlas juntas y compactas */
             margin: 0 auto;
             padding: 20px;
         }
-        .foto-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transform: rotate(calc(var(--r, 0) * 1deg));
-            transition: 0.3s;
+        
+        /* Ajuste automático para celulares (se hace 1 columna solita) */
+        @media (max-width: 600px) {
+            .galeria {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
         }
-        .foto-card:hover {
-            transform: scale(1.05) rotate(0deg);
-            z-index: 10;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .foto-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-        .pie-foto {
-            margin-top: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            color: #444;
-        }
-        .btn-regresar {
-            margin-top: 40px;
-            display: inline-block;
-            color: #ff4757;
-            text-decoration: none;
-            font-weight: bold;
-        }
+
     </style>
 </head>
 <body>
