@@ -33,20 +33,25 @@
         h1 { font-size: 2.2em; margin-bottom: 10px; }
         p { font-size: 1.1em; line-height: 1.5; }
         
-        /* Zona de la foto dinámica */
+     /* Zona de la foto dinámica adaptable */
         .contenedor-foto {
-            margin: 25px 0;
-            position: relative;
+            margin: 20px auto;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .foto-dinamica {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #ff4757;
+            max-width: 100%;       /* Evita que las fotos anchas se salgan de la tarjeta */
+            max-height: 350px;     /* Altura máxima ideal para que mantenga su proporción original */
+            width: auto;           /* Adapta el ancho real de la imagen original */
+            height: auto;          /* Adapta el alto real de la imagen original */
+            border-radius: 12px;   /* Un borde ligeramente redondeado muy elegante en lugar del círculo */
+            border: 4px solid #ff4757;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: transform 0.2s ease;
         }
+
         
         /* Contador y Botón interactivo */
         .contador-box {
