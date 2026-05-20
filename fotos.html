@@ -41,13 +41,18 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* Control estricto del tamaño de la imagen para que no se hagan gigantes */
+       /* Control adaptable para mostrar la dimensión original completa */
         .foto-card img {
-            width: 100%;
-            height: 180px; /* Altura fija y compacta para que entren en una sola pantalla */
-            object-fit: cover; /* Recorta la imagen proporcionalmente para que no se deforme */
+            max-width: 100%;       /* Evita que se salgan de la tarjeta blanca */
+            max-height: 220px;     /* Altura máxima ideal para mantener el formato 2x2 en una pantalla */
+            width: auto;           /* Mantiene el ancho original de tu foto */
+            height: auto;          /* Mantiene el alto original de tu foto */
+            object-fit: contain;   /* Muestra la imagen completa sin recortar absolutamente nada */
             border-radius: 5px;
+            display: block;
+            margin: 0 auto;        /* Centra la foto dentro de la tarjeta blanca */
         }
+
 
         .pie-foto {
             margin-top: 8px;
