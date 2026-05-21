@@ -16,13 +16,15 @@
             text-align: center;
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('kai2.jpeg');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
+            background-attachment: fixed;
             background-repeat: no-repeat;
             overflow: hidden;
         }
         .mensaje-final {
             color: white;
-            font-size: 3em;
+            font-size: 5vw; /* Hace que el tamaño del texto se adapte al ancho de la pantalla */
+            max-width: 90%; /* Evita que el texto toque los bordes de la pantalla */
             font-weight: bold;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
             padding: 20px;
@@ -42,6 +44,4 @@
     </div>
 
 </body>
-</html>
-
 </html>
