@@ -43,14 +43,14 @@
 
        /* Control adaptable para mostrar la dimensión original completa */
         .foto-card img {
-            max-width: 100%;       /* Evita que se salgan de la tarjeta blanca */
-            max-height: 220px;     /* Altura máxima ideal para mantener el formato 2x2 en una pantalla */
-            width: auto;           /* Mantiene el ancho original de tu foto */
-            height: auto;          /* Mantiene el alto original de tu foto */
-            object-fit: contain;   /* Muestra la imagen completa sin recortar absolutamente nada */
+            max-width: 100%;       
+            max-height: 220px;     
+            width: auto;           
+            height: auto;          
+            object-fit: contain;   
             border-radius: 5px;
             display: block;
-            margin: 0 auto;        /* Centra la foto dentro de la tarjeta blanca */
+            margin: 0 auto;        
         }
 
 
@@ -72,7 +72,7 @@
             font-size: 0.9em;
         }
 
-        /* Ajuste automático para pantallas muy pequeñas de celular */
+        /* Ajuste automático para celular */
         @media (max-width: 500px) {
             .galeria {
                 grid-template-columns: 1fr; /* En celular se acomodan en 1 columna para que no se vean minúsculas */
